@@ -1,9 +1,18 @@
 import React, { Component } from "react";
+import Search from "./Search";
+import List from "./List";
 
 class App extends Component {
-  state = {};
+  state = {
+    books: []
+  };
   render() {
-    return <div>Hello</div>;
+    return (
+      <>
+        <Search />
+        <List />
+      </>
+    );
   }
 }
 
