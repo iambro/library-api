@@ -4,7 +4,14 @@ import List from "./List";
 
 class App extends Component {
   state = {
-    books: []
+    books: [],
+    search: ""
+  };
+
+  handleChange = e => {
+    this.setState({
+      search: e.target.value
+    });
   };
 
   handleClick = () => {
@@ -14,7 +21,7 @@ class App extends Component {
 
   getData = bookStore => {
     let id = 0;
-    fetch("https://www.googleapis.com/books/v1/volumes?q=intitle:lord")
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${this.state.search}`)
       .then(response => response.json())
       .then(data => {
         data.items.map(book =>
@@ -38,7 +45,11 @@ class App extends Component {
   render() {
     return (
       <>
-        <Search click={this.handleClick} />
+        <Search
+          click={this.handleClick}
+          change={this.handleChange}
+          search={this.state.search}
+        />
         <List books={this.state.books} />
       </>
     );
