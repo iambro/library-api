@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-const Search = () => {
-    return (
-        <>
-        <input type="text" placeholder="Podaj tytuł..."/>
-        <button>Szukaj</button>
-        </>
-    );
-}
- 
+const Search = props => {
+  return (
+    <>
+      <input type="text" placeholder="Podaj tytuł..." />
+      <button onClick={props.click}>Szukaj</button>
+    </>
+  );
+};
+
 export default Search;
