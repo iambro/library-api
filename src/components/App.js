@@ -4,36 +4,40 @@ import List from "./List";
 
 class App extends Component {
   state = {
-    books: [
-      {
-        id: 0,
-        cover:
-          "http://books.google.com/books/content?id=_JlQAAAAYAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE72yZ7FroGLYwlmYhfmCKYoaT02VkiWtNsDSECDss-_6S_WHbrNexfOuAA-NWg19HrNReu9Ns30Cfyn28T1qzjwWauC1NSA7k8LjH-MAEAhNLANBZD3wTy6i2tk9CFzXqXg0xrHF&source=gbs_api",
-        title: "Lord",
-        description: "Za górami, za lasami"
-      },
-      {
-        id: 1,
-        cover:
-          "http://books.google.com/books/content?id=_JlQAAAAYAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE72yZ7FroGLYwlmYhfmCKYoaT02VkiWtNsDSECDss-_6S_WHbrNexfOuAA-NWg19HrNReu9Ns30Cfyn28T1qzjwWauC1NSA7k8LjH-MAEAhNLANBZD3wTy6i2tk9CFzXqXg0xrHF&source=gbs_api",
-        title: "Twarz",
-        description: "Kibice Ruchu Chorzów"
-      },
-      {
-        id: 2,
-        cover:
-          "http://books.google.com/books/content?id=_JlQAAAAYAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE72yZ7FroGLYwlmYhfmCKYoaT02VkiWtNsDSECDss-_6S_WHbrNexfOuAA-NWg19HrNReu9Ns30Cfyn28T1qzjwWauC1NSA7k8LjH-MAEAhNLANBZD3wTy6i2tk9CFzXqXg0xrHF&source=gbs_api",
-        title: "Ogień",
-        description: "Kibice Miedzi"
-      }
-    ]
+    books: []
   };
 
   handleClick = () => {
-    this.getData();
+    let bookStore = [];
+    this.getData(bookStore);
+    this.setData(bookStore);
   };
 
-  getData = () => {};
+  getData = bookStore => {
+    let id = 0;
+    fetch("https://www.googleapis.com/books/v1/volumes?q=intitle:lord")
+      .then(response => response.json())
+      .then(data =>
+        data.items.map(book =>
+          bookStore.push({
+            id: id++,
+            cover: book.volumeInfo.hasOwnProperty("imageLinks")
+              ? book.volumeInfo.imageLinks.thumbnail
+              : "Brak okładki",
+            title: book.volumeInfo.title,
+            description: book.volumeInfo.hasOwnProperty("description")
+              ? book.volumeInfo.description
+              : "Brak opisu"
+          })
+        )
+      );
+  };
+
+  setData = bookStore => {
+    this.setState({
+      books: bookStore
+    });
+  };
 
   render() {
     return (
