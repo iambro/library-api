@@ -10,14 +10,13 @@ class App extends Component {
   handleClick = () => {
     let bookStore = [];
     this.getData(bookStore);
-    this.setData(bookStore);
   };
 
   getData = bookStore => {
     let id = 0;
     fetch("https://www.googleapis.com/books/v1/volumes?q=intitle:lord")
       .then(response => response.json())
-      .then(data =>
+      .then(data => {
         data.items.map(book =>
           bookStore.push({
             id: id++,
@@ -29,14 +28,11 @@ class App extends Component {
               ? book.volumeInfo.description
               : "Brak opisu"
           })
-        )
-      );
-  };
-
-  setData = bookStore => {
-    this.setState({
-      books: bookStore
-    });
+        );
+        this.setState({
+          books: bookStore
+        });
+      });
   };
 
   render() {
