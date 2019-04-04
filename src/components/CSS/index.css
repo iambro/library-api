@@ -1,0 +1,118 @@
+html {
+  font-size: 62.5%; }
+
+html,
+body,
+ul,
+ol,
+li,
+form,
+fieldset,
+legend {
+  margin: 0;
+  padding: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0; }
+
+fieldset,
+img {
+  border: 0; }
+
+li {
+  list-style: none; }
+
+.header {
+  width: 100%;
+  padding: 20px;
+  background-color: #5c8d89;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .header .form__input {
+    width: 25rem;
+    margin-right: 5px;
+    font-family: inherit;
+    font-size: 1.6rem;
+    background-color: #f4f9f4;
+    padding: 0 15px;
+    border: 1px solid #f4f9f4;
+    border-radius: 30px; }
+  .header .form__button {
+    margin-left: 5px;
+    font-family: inherit;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    color: #f4f9f4;
+    padding: 5px 15px;
+    background-color: #74b49b;
+    border: 2px solid #74b49b;
+    border-radius: 30px; }
+    .header .form__button:hover {
+      background-color: #5c8d89;
+      cursor: pointer; }
+
+.list {
+  font-size: 1.4rem;
+  width: 90%;
+  margin: 50px auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 40px; }
+  .list__result {
+    padding: 10px 40px;
+    border: 1px solid #a7d7c5;
+    border-radius: 30px;
+    background-color: #a7d7c5;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
+  .list__cover {
+    height: 180px;
+    display: block;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    padding: 15px; }
+  .list__textBox {
+    padding-bottom: 10px; }
+  .list__label {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #5c8d89; }
+
+body {
+  font-family: "Lato", "Arial", sans-serif;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #74b49b; }
+
+#root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }

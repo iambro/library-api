@@ -1,0 +1,32 @@
+.list {
+    font-size: 1.4rem;
+    width: 90%;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 40px;
+  &__result {
+    padding: 10px 40px;
+    border: 1px solid $lightGreen;
+    border-radius: 30px;
+    background-color: $lightGreen;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__cover {
+      height: 180px;
+      display: block;
+      align-self: center;
+      padding: 15px;
+  }
+  &__textBox {
+    padding-bottom: 10px;
+  }
+  &__label {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $deepGreen;
+  }
+}
