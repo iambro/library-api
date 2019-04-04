@@ -14,14 +14,19 @@ class App extends Component {
     });
   };
 
-  handleClick = () => {
+  handleClick = e => {
+    e.preventDefault();
     let bookStore = [];
     this.getData(bookStore);
   };
 
   getData = bookStore => {
     let id = 0;
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${this.state.search}`)
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=intitle:${
+        this.state.search
+      }`
+    )
       .then(response => response.json())
       .then(data => {
         data.items.map(book =>
@@ -29,11 +34,11 @@ class App extends Component {
             id: id++,
             cover: book.volumeInfo.hasOwnProperty("imageLinks")
               ? book.volumeInfo.imageLinks.thumbnail
-              : "Brak okładki",
+              : "empty",
             title: book.volumeInfo.title,
             description: book.volumeInfo.hasOwnProperty("description")
               ? book.volumeInfo.description
-              : "Brak opisu"
+              : "empty"
           })
         );
         this.setState({
