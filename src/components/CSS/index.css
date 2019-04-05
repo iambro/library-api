@@ -61,6 +61,11 @@ li {
       background-color: #5c8d89;
       cursor: pointer; }
 
+.empty {
+  padding-top: 20px;
+  font-size: 2rem;
+  color: #f4f9f4; }
+
 .list {
   font-size: 1.4rem;
   width: 90%;

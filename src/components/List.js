@@ -12,7 +12,11 @@ const List = props => {
   ));
   return (
     <main className="list-wrapper">
-      <ul className="list">{results}</ul>
+      {props.empty ? (
+        <div className="empty">Brak wyników</div>
+      ) : (
+        <ul className="list">{results}</ul>
+      )}
     </main>
   );
 };
