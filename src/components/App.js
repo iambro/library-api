@@ -6,8 +6,45 @@ class App extends Component {
   state = {
     books: [],
     search: "",
-    empty: false
+    empty: false,
+    max: 12,
+    height: window.innerHeight,
+    message: "not at bottom"
   };
+
+  handleScroll = () => {
+    const windowHeight =
+      "innerHeight" in window
+        ? window.innerHeight
+        : document.documentElement.offsetHeight;
+    const body = document.body;
+    const html = document.documentElement;
+    const docHeight = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+    const windowBottom = windowHeight + window.pageYOffset;
+    if (windowBottom >= docHeight) {
+      this.setState({
+        message: "bottom reached"
+      });
+    } else {
+      this.setState({
+        message: "not a bottom"
+      });
+    }
+  };
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
 
   handleChange = e => {
     this.setState({
@@ -18,15 +55,15 @@ class App extends Component {
   handleClick = e => {
     e.preventDefault();
     let bookStore = [];
-    this.getData(bookStore);
+    let id = 0;
+    this.getData(bookStore, id);
   };
 
-  getData = bookStore => {
-    let id = 0;
+  getData = (bookStore, id) => {
     fetch(
       `https://www.googleapis.com/books/v1/volumes?q=intitle:${
         this.state.search
-      }&maxResults=12`
+      }&maxResults=${this.state.max}`
     )
       .then(response => response.json())
       .then(data => {
