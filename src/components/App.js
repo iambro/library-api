@@ -7,34 +7,9 @@ class App extends Component {
     books: [],
     search: "",
     empty: false,
-    start: 0,
-    max: 12
+    updateStart: 40,
+    max: 40
   };
-
-  isBottom(el) {
-    return el.getBoundingClientRect().bottom <= window.innerHeight;
-  }
-  
-  componentDidMount() {
-    document.addEventListener('scroll', this.trackScrolling);
-  }
-
-  componentDidUpdate() {
-    document.addEventListener('scroll', this.trackScrolling);
-  }
-  
-  componentWillUnmount() {
-    document.removeEventListener('scroll', this.trackScrolling);
-  }
-  
-  trackScrolling = () => {
-    const wrappedElement = document.getElementById('root');
-    if (this.isBottom(wrappedElement)) {
-      console.log('header bottom reached');
-      document.removeEventListener('scroll', this.trackScrolling);
-    }
-  };
-
 
   handleChange = e => {
     this.setState({
@@ -46,14 +21,25 @@ class App extends Component {
     e.preventDefault();
     let bookStore = [];
     let id = 0;
-    this.getData(bookStore, id);
+    const didUpdate = false;
+    this.getData(bookStore, id, didUpdate);
   };
 
-  getData = (bookStore, id) => {
+  handleUpdate = () => {
+    let bookStore = this.state.books;
+    let id = this.state.updateStart;
+    const didUpdate = true;
+    this.getData(bookStore, id, didUpdate);
+    this.setState({
+      updateStart: id + 40
+    });
+  };
+
+  getData = (bookStore, id, didUpdate) => {
     fetch(
       `https://www.googleapis.com/books/v1/volumes?q=intitle:${
         this.state.search
-      }&startIndex=${this.state.start}&maxResults=${this.state.max}`
+      }&startIndex=${id}&maxResults=${this.state.max}`
     )
       .then(response => response.json())
       .then(data => {
@@ -74,6 +60,8 @@ class App extends Component {
             books: bookStore,
             empty: false
           });
+        } else if (didUpdate === true) {
+          return null;
         } else {
           this.setState({
             empty: true
@@ -81,6 +69,27 @@ class App extends Component {
         }
       });
   };
+
+
+  handleScroll = () => {
+    const wrappedElement = document.getElementById("root");
+    if (wrappedElement.getBoundingClientRect().bottom <= window.innerHeight) {
+      this.handleUpdate();
+      document.removeEventListener("scroll", this.handleScroll);
+    }
+  };
+
+  componentDidMount() {
+    document.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentDidUpdate() {
+    document.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("scroll", this.handleScroll);
+  }
 
   render() {
     return (
