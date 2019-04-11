@@ -3,3 +3,37 @@
   font-size: 2rem;
   color: $white;
 }
+
+.list {
+  font-size: 1.4rem;
+  width: 90%;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  &__result {
+    padding: 10px 20px;
+    border: 1px solid $lightGreen;
+    border-radius: 30px;
+    background-color: $lightGreen;
+    box-shadow: 5px 5px 10px 0px rgba(92, 141, 137, 1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__cover {
+    height: 180px;
+    display: block;
+    align-self: center;
+    padding: 15px;
+  }
+  &__textBox {
+    padding-bottom: 10px;
+  }
+  &__label {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $deepGreen;
+  }
+}

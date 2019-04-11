@@ -23,6 +23,9 @@ class App extends Component {
     let id = 0;
     const didUpdate = false;
     this.getData(bookStore, id, didUpdate);
+    this.setState({
+      updateStart: 12
+    })
   };
 
   handleUpdate = () => {

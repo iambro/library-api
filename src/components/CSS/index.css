@@ -47,6 +47,10 @@ li {
     padding: 5px 15px;
     border: 1px solid #f4f9f4;
     border-radius: 30px; }
+    .header .form__input:focus {
+      outline: none;
+      border: 1px solid #74b49b;
+      background-color: #a7d7c5; }
   .header .form__button {
     margin-left: 5px;
     font-family: inherit;
@@ -72,14 +76,15 @@ li {
   margin: 50px auto;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto auto;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 40px; }
   .list__result {
-    padding: 10px 40px;
+    padding: 10px 20px;
     border: 1px solid #a7d7c5;
     border-radius: 30px;
     background-color: #a7d7c5;
+    -webkit-box-shadow: 5px 5px 10px 0px #5c8d89;
+    box-shadow: 5px 5px 10px 0px #5c8d89;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
