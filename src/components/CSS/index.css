@@ -44,7 +44,7 @@ li {
     font-family: inherit;
     font-size: 1.6rem;
     background-color: #f4f9f4;
-    padding: 0 15px;
+    padding: 5px 15px;
     border: 1px solid #f4f9f4;
     border-radius: 30px; }
   .header .form__button {

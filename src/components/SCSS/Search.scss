@@ -5,7 +5,7 @@
 
   display: flex;
   justify-content: center;
-  
+
   .form {
     &__input {
       width: 25rem;
@@ -13,7 +13,7 @@
       font-family: inherit;
       font-size: 1.6rem;
       background-color: $white;
-      padding: 0 15px;
+      padding: 5px 15px;
       border: 1px solid $white;
       border-radius: 30px;
     }
