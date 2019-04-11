@@ -11,6 +11,31 @@ class App extends Component {
     max: 12
   };
 
+  isBottom(el) {
+    return el.getBoundingClientRect().bottom <= window.innerHeight;
+  }
+  
+  componentDidMount() {
+    document.addEventListener('scroll', this.trackScrolling);
+  }
+
+  componentDidUpdate() {
+    document.addEventListener('scroll', this.trackScrolling);
+  }
+  
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.trackScrolling);
+  }
+  
+  trackScrolling = () => {
+    const wrappedElement = document.getElementById('root');
+    if (this.isBottom(wrappedElement)) {
+      console.log('header bottom reached');
+      document.removeEventListener('scroll', this.trackScrolling);
+    }
+  };
+
+
   handleChange = e => {
     this.setState({
       search: e.target.value
