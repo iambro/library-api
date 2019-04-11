@@ -8,7 +8,7 @@ class App extends Component {
     search: "",
     empty: false,
     start: 0,
-    max: 6
+    max: 12
   };
 
   handleChange = e => {
