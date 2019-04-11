@@ -7,8 +7,8 @@ class App extends Component {
     books: [],
     search: "",
     empty: false,
-    updateStart: 40,
-    max: 40
+    updateStart: 12,
+    max: 12
   };
 
   handleChange = e => {
@@ -31,7 +31,7 @@ class App extends Component {
     const didUpdate = true;
     this.getData(bookStore, id, didUpdate);
     this.setState({
-      updateStart: id + 40
+      updateStart: id + 12
     });
   };
 
@@ -69,7 +69,6 @@ class App extends Component {
         }
       });
   };
-
 
   handleScroll = () => {
     const wrappedElement = document.getElementById("root");
