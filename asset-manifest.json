@@ -1,0 +1,14 @@
+{
+  "main.css": "/library-api/static/css/main.5c203248.chunk.css",
+  "main.js": "/library-api/static/js/main.e3d3de2f.chunk.js",
+  "main.js.map": "/library-api/static/js/main.e3d3de2f.chunk.js.map",
+  "runtime~main.js": "/library-api/static/js/runtime~main.a187e1f0.js",
+  "runtime~main.js.map": "/library-api/static/js/runtime~main.a187e1f0.js.map",
+  "static/js/2.65aa1cca.chunk.js": "/library-api/static/js/2.65aa1cca.chunk.js",
+  "static/js/2.65aa1cca.chunk.js.map": "/library-api/static/js/2.65aa1cca.chunk.js.map",
+  "index.html": "/library-api/index.html",
+  "precache-manifest.632a1ebe744cf4b82ffdc64ffbb1a12d.js": "/library-api/precache-manifest.632a1ebe744cf4b82ffdc64ffbb1a12d.js",
+  "service-worker.js": "/library-api/service-worker.js",
+  "static/css/main.5c203248.chunk.css.map": "/library-api/static/css/main.5c203248.chunk.css.map",
+  "static/media/nocover.png": "/library-api/static/media/nocover.97ce854c.png"
+}
