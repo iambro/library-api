@@ -17,7 +17,7 @@ const Result = props => {
       <section className="list_textBox">
         <label className="list__label">Opis:</label>
         <p className="list__description">
-          {props.description !== "empty" ? props.description.substring(0, 80)+'...' : "Brak"}
+          {props.description !== "empty" ? props.description.substring(0, 100)+'...' : "Brak"}
         </p>
       </section>
     </li>

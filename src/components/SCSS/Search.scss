@@ -7,9 +7,12 @@
   justify-content: center;
 
   .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     &__input {
       width: 25rem;
-      margin-right: 5px;
+      margin: 5px;
       font-family: inherit;
       font-size: 1.6rem;
       background-color: $white;
@@ -23,7 +26,7 @@
       }
     }
     &__button {
-      margin-left: 5px;
+      margin: 5px;
       font-family: inherit;
       text-transform: uppercase;
       font-size: 1.8rem;
