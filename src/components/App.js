@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import Search from "./Search";
 import List from "./List";
+const numberOfResults = 12;
 
 class App extends Component {
   state = {
     books: [],
     search: "",
     empty: false,
-    updateStart: 12,
-    max: 12
+    updateStart: numberOfResults,
+    max: numberOfResults
   };
+
+  
 
   handleChange = e => {
     this.setState({
