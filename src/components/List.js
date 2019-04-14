@@ -1,5 +1,5 @@
 import React from "react";
-import Result from "./Result";
+import { Result } from "./Result";
 
 const List = props => {
   const results = props.books.map(book => (
@@ -21,4 +21,4 @@ const List = props => {
   );
 };
 
-export default List;
+export { List };

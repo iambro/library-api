@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Search from "./Search";
-import List from "./List";
+import { Search } from "./Search";
+import { List } from "./List";
 const numberOfResults = 12;
 
 class App extends Component {
@@ -11,8 +11,6 @@ class App extends Component {
     updateStart: numberOfResults,
     max: numberOfResults
   };
-
-  
 
   handleChange = e => {
     this.setState({
@@ -28,7 +26,7 @@ class App extends Component {
     this.getData(bookStore, id, didUpdate);
     this.setState({
       updateStart: 12
-    })
+    });
   };
 
   handleUpdate = () => {
@@ -110,4 +108,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export { App };
